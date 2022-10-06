@@ -92,7 +92,7 @@ import pandas as pd
 import datetime
 st.set_page_config(layout="centered", page_icon="🏋️‍♀️", page_title="Workout Logger")
 st.title("🏋️‍♀️ Workout Tracker")
-tab1, tab2, tab3 = st.tabs(["Logger", "Summary", "Owl"])
+tab1, tab2, tab3 = st.tabs(["Logger", "Summary", "History"])
 with tab1:
     
     
@@ -209,4 +209,4 @@ with tab2:
     st.altair_chart(line_chart, use_container_width=True)
 
 with tab3:
-    st.write(tracking_data)
+    st.dataframe(df_tracking)
