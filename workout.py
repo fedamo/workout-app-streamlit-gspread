@@ -208,4 +208,5 @@ with tab2:
     )
     st.altair_chart(line_chart, use_container_width=True)
 
-
+with tab3:
+    st.write(tracking_data)
