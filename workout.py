@@ -90,7 +90,7 @@ workout_set = workout_set.drop(df.index[0])
 import streamlit as st
 import pandas as pd
 import datetime
-st.set_page_config(layout="centered", page_icon="🏋️‍♀️", page_title="Workout Logger")
+st.set_page_config(layout="wide", page_icon="🏋️‍♀️", page_title="Workout Logger")
 st.title("🏋️‍♀️ Workout Tracker")
 tab1, tab2, tab3 = st.tabs(["Logger", "Summary", "History"])
 with tab1:
