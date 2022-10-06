@@ -9,7 +9,6 @@ from __future__ import print_function
 from optparse import Values
 import streamlit as st
 import os.path
-import plotly.express as px
 
 from google.auth.transport.requests import Request
 from google.oauth2.credentials import Credentials
