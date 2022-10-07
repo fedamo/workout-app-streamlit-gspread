@@ -75,6 +75,30 @@ def append_df_to_gs(df, sheet_name:str):
 
 
 
+###Function delete last row google sheet
+def delete_rows(spreadsheet_id, row_num:int):
+    updating = sheet.batchUpdate(
+        spreadsheetId=spreadsheet_id, body={
+  "requests": 
+    [
+    {
+        "deleteDimension": {
+            "range": {
+                "sheetId": "969330749",
+                "dimension": "ROWS",
+                "startIndex": row_num,
+                "endIndex": row_num+1
+            }
+        }
+    }
+]
+    })
+    updating.execute()
+
+
+
+
+
 df = pd.DataFrame(values)
 df = df.convert_dtypes()
 workout_set = df.T
@@ -179,6 +203,7 @@ with tab1:
     with buff2:
         st.markdown('#')
         st.button('Upload Workout', on_click = append_df_to_gs, args = (record,'Tracker'))
+        st.write(len(record.index))
         
 with tab2:
     df_tracking = pd.DataFrame(values_tracking)
@@ -209,4 +234,6 @@ with tab2:
     st.altair_chart(line_chart, use_container_width=True)
 
 with tab3:
+    st.write(len(df_tracking.index))
     st.dataframe(df_tracking)
+    st.button('Delete last row', on_click = delete_rows, args = (SAMPLE_SPREADSHEET_ID,len(df_tracking.index)))
